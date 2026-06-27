@@ -909,3 +909,104 @@ body {
 .btn-secondary:hover {
     box-shadow: 0 0 20px var(--primary-gold);
 }
+
+/* ============================================
+   DARK MODE TOGGLE
+   ============================================ */
+
+/* Light Mode Colors */
+body[data-theme="light"] {
+    --primary-black: #ffffff;
+    --dark-gray: #f5f5f5;
+    --card-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+    --text-light: #1a1a1a;
+    --text-gray: #555555;
+    --text-muted: #888888;
+    --shadow-glow: 0 0 20px rgba(201, 168, 76, 0.2);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: #e0e0e0;
+}
+
+body[data-theme="light"] section {
+    background: #f9f9f9;
+    border-color: #e0e0e0;
+    border-top-color: var(--primary-gold);
+}
+
+body[data-theme="light"] .skill-card,
+body[data-theme="light"] .timeline-content,
+body[data-theme="light"] .stat-box,
+body[data-theme="light"] .contact-item {
+    background: white;
+    border-color: #e0e0e0;
+}
+
+body[data-theme="light"] .footer {
+    background: #f5f5f5;
+    border-top-color: #e0e0e0;
+}
+
+body[data-theme="light"] .hero {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f5f5f5 100%);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-gold);
+    background: transparent;
+    color: var(--primary-gold);
+    cursor: pointer;
+    font-size: 1.3em;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+.theme-toggle:hover {
+    background: var(--primary-gold);
+    color: var(--primary-black);
+    box-shadow: 0 0 20px var(--primary-gold);
+    transform: scale(1.1) rotate(20deg);
+}
+
+.theme-toggle i {
+    transition: transform 0.6s ease;
+}
+
+.theme-toggle.sun i {
+    transform: rotate(360deg);
+}
+
+/* Smooth transition untuk theme switch */
+* {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Exclude animations dari transition smooth */
+section,
+.skill-card,
+.timeline-content,
+.stat-box {
+    animation: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        font-size: 1.1em;
+    }
+}

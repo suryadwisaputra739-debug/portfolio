@@ -1,9 +1,46 @@
 // ============================================
-// PORTFOLIO JAVASCRIPT - SURYA DWISAPUTRA
+// DARK MODE TOGGLE
 // ============================================
 
-// DOM Elements
-const hamburger = document.getElementById('hamburger');
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+const body = document.body;
+
+// Check saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+
+// Theme toggle event
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+// Update icon berdasarkan theme
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector('i');
+    themeToggle.classList.remove('sun');
+    
+    if (theme === 'light') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        themeToggle.classList.add('sun');
+        themeToggle.title = 'Switch to Dark Mode';
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        themeToggle.title = 'Switch to Light Mode';
+    }
+}
+
+// ============================================
+// DOM ELEMENTS & VARIABLES
+// ============================================
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 const backToTop = document.getElementById('backToTop');
