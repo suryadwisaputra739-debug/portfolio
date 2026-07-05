@@ -3,288 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surya Dwi Saputra - Premium Portfolio</title>
+    <title>Surya - Administration Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-gradient"></div>
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
-
+    <!-- Dynamic Background -->
+    <canvas id="bgCanvas"></canvas>
+    
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-wrapper">
-            <div class="logo">
-                <span class="logo-main">SD</span>
-                <span class="logo-sub">PORTFOLIO</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="theme-btn" id="themeBtn">
+    <header class="header">
+        <div class="header-content">
+            <div class="brand">SURYA</div>
+            <nav class="nav">
+                <a href="#work" class="nav-item">WORK</a>
+                <a href="#about" class="nav-item">ABOUT</a>
+                <a href="#contact" class="nav-item">CONTACT</a>
+            </nav>
+            <button class="theme-switch" id="themeSwitcher">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="word">Creative</span>
-                        <span class="word">Developer</span>
-                        <span class="word">& Admin</span>
-                    </h1>
-                    <p class="hero-subtitle">Office Administration Student | Creative Problem Solver</p>
-                    <p class="hero-description">
-                        I craft elegant digital experiences through careful attention to detail, 
-                        modern design principles, and strategic administration excellence.
-                    </p>
-                    <div class="hero-actions">
-                        <button class="btn btn-primary">Explore My Work</button>
-                        <a href="cv.pdf" class="btn btn-secondary" download>Download CV</a>
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="card-wrapper">
-                        <div class="lanyard"></div>
-                        <div class="card" id="profileCard">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <div class="card-header">
-                                        <div class="header-accent"></div>
-                                        <span class="badge">ADMIN</span>
-                                    </div>
-                                    <div class="card-image">
-                                        <img src="profile.png" alt="Surya Dwi Saputra">
-                                    </div>
-                                    <div class="card-footer">
-                                        <p class="name">SURYA DWI SAPUTRA</p>
-                                        <p class="role">Office Administration</p>
-                                    </div>
-                                    <div class="card-glow"></div>
-                                </div>
-                            </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">ADMINISTRATION</span>
+                    <span class="title-line">EXCELLENCE</span>
+                    <span class="title-line highlight">INNOVATOR</span>
+                </h1>
+                <p class="hero-tagline">Transforming organizational processes through creativity and precision</p>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="floating-element elem-1"></div>
+                    <div class="profile-showcase">
+                        <div class="showcase-inner">
+                            <img src="profile.png" alt="Profile">
+                            <div class="showcase-badge">SD</div>
                         </div>
                     </div>
+                    <div class="floating-element elem-2"></div>
                 </div>
             </div>
         </div>
-
-        <div class="scroll-hint">
-            <span>Scroll to explore</span>
-            <i class="fas fa-arrow-down"></i>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Semesters</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Internships</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Dedication</span>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="underline"></div>
+        <div class="about-container">
+            <div class="about-header">
+                <h2>WHO I AM</h2>
+                <div class="header-decoration"></div>
             </div>
+            
+            <div class="about-layout">
+                <div class="about-main">
+                    <p class="about-intro">
+                        Office Administration student at Universitas Negeri Surabaya with passion for organizational excellence and creative problem-solving. Every project is an opportunity to demonstrate precision, professionalism, and innovation.
+                    </p>
 
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Education</h3>
-                    <p>Universitas Negeri Surabaya</p>
-                    <p class="small">Office Administration Education<br>Active Student</p>
-                </div>
-
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Experience</h3>
-                    <p>PT Loket Premium Game Indonesia</p>
-                    <p class="small">Customer Service & Admin<br>~6 Months</p>
-                </div>
-
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>Pétanque Champion</p>
-                    <p class="small">Top 10 Student<br>3x OSIS Member</p>
-                </div>
-            </div>
-
-            <div class="about-text">
-                <p>
-                    I'm an undergraduate student passionate about office administration and organizational excellence. 
-                    With hands-on experience in customer service and administrative management, I've developed strong 
-                    skills in team collaboration, business communication, and innovative problem-solving.
-                </p>
-                <p>
-                    My journey has taught me the importance of precision, professionalism, and continuous growth. 
-                    I thrive in dynamic environments where I can contribute meaningfully to organizational success.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Core Competencies</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h4>Technical</h4>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Microsoft Office Suite</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 95%"></div>
+                    <div class="experience-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>PT Loket Premium Game Indonesia</h4>
+                                <p class="timeline-role">Customer Service & Administration</p>
+                                <p class="timeline-desc">Professional customer engagement, administrative precision, team coordination</p>
+                                <span class="timeline-date">6 Months</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span>Data Management</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Business Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Field Work Internship (PKL)</h4>
+                                <p class="timeline-role">Administrative & Customer Interaction</p>
+                                <p class="timeline-desc">Real-world operational experience, data management, stakeholder relations</p>
+                                <span class="timeline-date">6 Months</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-group">
-                    <h4>Professional</h4>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Leadership & Team Management</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Communication & Presentation</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 96%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Problem Solving</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 91%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Personal</h4>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span>Adaptability & Flexibility</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 94%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Attention to Detail</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 97%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Creativity & Innovation</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 89%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects/Achievements Section -->
-    <section class="projects" id="projects">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Achievements & Highlights</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
+                <div class="about-highlights">
+                    <div class="highlight-card">
                         <i class="fas fa-trophy"></i>
+                        <h4>Champion</h4>
+                        <p>Regional Pétanque Competition 2024</p>
                     </div>
-                    <h3>Regional Champion</h3>
-                    <p class="project-meta">Pétanque Competition 2024</p>
-                    <p>Demonstrated exceptional teamwork, strategic thinking, and competitive excellence.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-award"></i>
+                    <div class="highlight-card">
+                        <i class="fas fa-medal"></i>
+                        <h4>Top Performer</h4>
+                        <p>Top 10 Students (2022-2025)</p>
                     </div>
-                    <h3>Academic Excellence</h3>
-                    <p class="project-meta">Top 10 Students 2022-2025</p>
-                    <p>Consistent academic performer with strong commitment to educational excellence.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
+                    <div class="highlight-card">
                         <i class="fas fa-users"></i>
+                        <h4>Leader</h4>
+                        <p>3 Years Student Council (OSIS)</p>
                     </div>
-                    <h3>Leadership Experience</h3>
-                    <p class="project-meta">Student Council Member 3 Years</p>
-                    <p>Active leadership role in student organization with proven management capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencies Section -->
+    <section class="competencies" id="work">
+        <div class="comp-container">
+            <h2 class="comp-title">CORE COMPETENCIES</h2>
+            
+            <div class="comp-grid">
+                <div class="comp-column">
+                    <h3>TECHNICAL</h3>
+                    <div class="comp-list">
+                        <div class="comp-item">
+                            <span class="comp-name">Microsoft Office Suite</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Data Management</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Business Analysis</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-handshake"></i>
+                <div class="comp-column">
+                    <h3>INTERPERSONAL</h3>
+                    <div class="comp-list">
+                        <div class="comp-item">
+                            <span class="comp-name">Leadership</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Communication</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Problem Solving</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Professional Experience</h3>
-                    <p class="project-meta">PT Loket Premium Game Indonesia</p>
-                    <p>Customer service excellence and administrative precision in dynamic corporate environment.</p>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-rocket"></i>
+                <div class="comp-column">
+                    <h3>PERSONAL</h3>
+                    <div class="comp-list">
+                        <div class="comp-item">
+                            <span class="comp-name">Adaptability</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Precision</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        <div class="comp-item">
+                            <span class="comp-name">Creativity</span>
+                            <div class="comp-meter">
+                                <div class="comp-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Field Work Internship</h3>
-                    <p class="project-meta">6 Months PKL Program</p>
-                    <p>Practical experience in customer interaction, data management, and daily operations.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Continuous Growth</h3>
-                    <p class="project-meta">Lifelong Learning Commitment</p>
-                    <p>Dedicated to professional development and mastering new skills for career excellence.</p>
                 </div>
             </div>
         </div>
@@ -292,59 +206,48 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Let's Connect</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Feel free to reach out for collaborations, opportunities, or just a friendly hello!</p>
-
-                    <div class="contact-items">
-                        <a href="https://wa.me/6285730819709" class="contact-item">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <h2>LET'S COLLABORATE</h2>
+                    <p>Ready to bring organizational excellence and creative solutions to your team</p>
+                    
+                    <div class="contact-methods">
+                        <a href="https://wa.me/6285730819709" class="method">
                             <i class="fab fa-whatsapp"></i>
                             <div>
-                                <span class="label">WhatsApp</span>
-                                <span class="value">+62 857 3081 9709</span>
+                                <span class="method-label">WhatsApp</span>
+                                <span class="method-value">+62 857 3081 9709</span>
                             </div>
                         </a>
-
-                        <a href="mailto:suryadwisaputra739@gmail.com" class="contact-item">
+                        <a href="mailto:suryadwisaputra739@gmail.com" class="method">
                             <i class="fas fa-envelope"></i>
                             <div>
-                                <span class="label">Email</span>
-                                <span class="value">suryadwisaputra739@gmail.com</span>
+                                <span class="method-label">Email</span>
+                                <span class="method-value">suryadwisaputra739@gmail.com</span>
                             </div>
                         </a>
-
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="label">Location</span>
-                                <span class="value">Surabaya, East Java, Indonesia</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="contact-social">
-                    <h3>Follow Me</h3>
-                    <p>Connect with me on social platforms</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/sryaasptraa" class="social-link" title="Instagram">
+                <div class="contact-right">
+                    <h2>CONNECT</h2>
+                    <div class="social-grid">
+                        <a href="https://www.instagram.com/sryaasptraa" class="social-btn">
                             <i class="fab fa-instagram"></i>
+                            <span>INSTAGRAM</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/surya-dwi-saputra-48396b37a" class="social-link" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/surya-dwi-saputra-48396b37a" class="social-btn">
                             <i class="fab fa-linkedin-in"></i>
+                            <span>LINKEDIN</span>
                         </a>
-                        <a href="https://www.tiktok.com/@sryaasptraa" class="social-link" title="TikTok">
+                        <a href="https://www.tiktok.com/@sryaasptraa" class="social-btn">
                             <i class="fab fa-tiktok"></i>
+                            <span>TIKTOK</span>
                         </a>
-                        <a href="cv.pdf" class="social-link" title="Download CV" download>
+                        <a href="cv.pdf" class="social-btn" download>
                             <i class="fas fa-file-pdf"></i>
+                            <span>RESUME</span>
                         </a>
                     </div>
                 </div>
@@ -354,7 +257,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Surya Dwi Saputra. Crafted with care and precision.</p>
+        <p>SURYA DWI SAPUTRA © 2026 | Administration Excellence</p>
     </footer>
 
     <script src="script.js"></script>

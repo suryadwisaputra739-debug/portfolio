@@ -1,19 +1,83 @@
 // ============================================
-// PREMIUM PORTFOLIO - INTERACTIVE EFFECTS
+// UNIQUE INTERACTIVE EFFECTS
 // ============================================
+
+// Canvas Background Animation
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+        this.color = ['#ff4757', '#ffd700', '#00d4ff'][Math.floor(Math.random() * 3)];
+        this.opacity = Math.random() * 0.5 + 0.2;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+    }
+}
+
+// Initialize particles
+for (let i = 0; i < 50; i++) {
+    particles.push(new Particle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+// Resize canvas
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 
 // ============================================
 // THEME TOGGLE
 // ============================================
 
-const themeBtn = document.getElementById('themeBtn');
+const themeSwitcher = document.getElementById('themeSwitcher');
 const html = document.documentElement;
 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
-themeBtn.addEventListener('click', () => {
+themeSwitcher.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', newTheme);
@@ -22,7 +86,7 @@ themeBtn.addEventListener('click', () => {
 });
 
 function updateThemeIcon(theme) {
-    const icon = themeBtn.querySelector('i');
+    const icon = themeSwitcher.querySelector('i');
     if (theme === 'light') {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
@@ -33,32 +97,7 @@ function updateThemeIcon(theme) {
 }
 
 // ============================================
-// 3D CARD MOUSE TRACKING
-// ============================================
-
-const profileCard = document.getElementById('profileCard');
-
-document.addEventListener('mousemove', (e) => {
-    if (!profileCard) return;
-    
-    const rect = profileCard.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const rotateX = (e.clientY - centerY) / 30;
-    const rotateY = (centerX - e.clientX) / 30;
-    
-    profileCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
-
-document.addEventListener('mouseleave', () => {
-    if (profileCard) {
-        profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    }
-});
-
-// ============================================
-// SMOOTH SCROLL NAVIGATION
+// SMOOTH SCROLL & ACTIVE NAVIGATION
 // ============================================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -66,86 +105,57 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
 // ============================================
-// INTERSECTION OBSERVER - SCROLL ANIMATIONS
+// SCROLL ANIMATIONS
 // ============================================
 
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.animation = 'slideUp 0.6s ease-out';
+            entry.target.style.animation = 'slideUp 0.8s ease-out';
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe skill bars
-document.querySelectorAll('.skill-fill').forEach(bar => {
-    bar.style.opacity = '0';
-    observer.observe(bar);
+document.querySelectorAll('.comp-fill').forEach(el => observer.observe(el));
+document.querySelectorAll('.highlight-card').forEach(el => observer.observe(el));
+
+// ============================================
+// PARALLAX EFFECT
+// ============================================
+
+window.addEventListener('mousemove', (e) => {
+    const profile = document.querySelector('.profile-showcase');
+    if (profile) {
+        const rect = profile.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        
+        const rotateX = (y - 0.5) * 20;
+        const rotateY = (x - 0.5) * 20;
+        
+        profile.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
 });
 
-document.querySelectorAll('.project-card').forEach(card => {
-    card.style.opacity = '0';
-    observer.observe(card);
-});
-
-// ============================================
-// BUTTON INTERACTIONS
-// ============================================
-
-const exploreBtn = document.querySelector('.btn-primary');
-if (exploreBtn) {
-    exploreBtn.addEventListener('click', () => {
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-    });
-}
-
-// ============================================
-// NAVBAR ACTIVE LINK
-// ============================================
-
-const navLinks = document.querySelectorAll('.nav-menu a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
+document.querySelector('.profile-showcase').addEventListener('mouseleave', () => {
+    document.querySelector('.profile-showcase').style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
 });
 
 // ============================================
-// CONSOLE EASTER EGG
+// CONSOLE MESSAGE
 // ============================================
 
-console.log(
-    '%c✨ Welcome to Surya\'s Portfolio ✨',
-    'color: #6366f1; font-size: 16px; font-weight: bold;'
-);
-console.log(
-    '%cLet\'s create something amazing together!',
-    'color: #ec4899; font-size: 12px;'
-);
+console.log('%c🚀 Welcome to SURYA Portfolio', 'color: #ff4757; font-size: 18px; font-weight: bold;');
+console.log('%cLet\'s collaborate and create something amazing!', 'color: #ffd700; font-size: 12px;');
